@@ -86,6 +86,12 @@ window.addEventListener("error", (event) => {
 
 设定业务指标，超过阈值触发邮件，JIRA/Dingding Boot 通知到责任人以及其他相关人员
 
+## 未来
+
+- 如何联合监控？
+
+- 小程序怎么监控？
+
 ## 参考
 
 - [腾讯前端团队是如何做 web 性能监控的](https://cloud.tencent.com/developer/article/1650831)
