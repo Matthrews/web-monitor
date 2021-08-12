@@ -1,3 +1,5 @@
+import { cusAjax } from "../util/cusFetch";
+
 function report(error) {
   /* 三种方式上报
   1. img上传，兼容性好，异步，不存在跨域，不过大小受制与url；
@@ -17,6 +19,10 @@ function report(error) {
   });
 
   navigator.sendBeacon("reportUrl", blob);
+
+  // 如果sendBeacon不可用则使用cusAjax
+
+  cusAjax("POST", "reportUrl", blob);
 }
 
 const errInfo = {
@@ -51,7 +57,6 @@ export const setConfig = ({ userId, appId }) => {
 const initMonitor = () => {
   /**
    * 捕获jserror
-   * 通过img上报
    * 目前无法捕获的异常有：
    * 1. 网络异常，如果需要，需要在捕获阶段去做
    * 2. promise异常；
