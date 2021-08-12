@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>前端监控SDK</title>
+    <style type="text/css">
+      .correct:before {
+        content: "\2714";
+        color: #008100;
+      }
+      .incorrect:before {
+        content: "\2716";
+        color: #b20610;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <span class="status correct"></span>
+      <span class="status incorrect"></span>
+      <div class="content">
+        <input type="button" value="点击我报错" onclick="btnClick()" />
+        <input
+          type="button"
+          value="点击我报错Promise"
+          onclick="btnPromiseClick()"
+        />
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function btnClick() {
+        window.bar.error = "error";
+      }
+
+      function btnPromiseClick() {
+        new Promise((resolve, reject) => {
+          window.bar.error = "error";
+        });
+      }
+    </script>
+
+    <script src="./bar.js"></script>
+  </body>
+</html>
